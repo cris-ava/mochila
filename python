@@ -1,0 +1,16 @@
+
+vec = ['botella', 'capa', 'sable de luz', 'dinero' ] 
+
+def usar_la_fuerza(vector, buscado, primero, ultimo):
+    medio = (primero + ultimo) // 2
+    if(primero > ultimo):
+        return -1
+    elif(buscado == vector[medio]):
+        return medio
+    elif(vector[medio] < buscado):
+        return usar_la_fuerza(vector, buscado, medio+1, ultimo)
+    else:
+        return usar_la_fuerza(vector, buscado, primero, medio-1)
+
+
+print('posicion', usar_la_fuerza(vec, 'sable de luz', 0, len(vec)-1))
